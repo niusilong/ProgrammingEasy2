@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+	<property name="LOG_HOME" value="D:/tv189/log" />
+	
+	<!-- <appender>是<configuration>的子节点，是负责写日志的组件。此处是写入控制台 -->
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>%-20(%d{HH:mm:ss} [%thread]) %-5level %logger{80} - %msg%n</pattern>
+		</layout>
+	</appender>
+	
+	
+	<!-- 将信息写入文件 -->
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+	      <fileNamePattern>${LOG_HOME}/%d{yyyyMMdd}/info.log</fileNamePattern>
+	    </rollingPolicy>  
+	    <layout class="ch.qos.logback.classic.PatternLayout">  
+	      <pattern>%-20(%d{HH:mm:ss} [%thread]) %-5level %logger{80} - %msg%n</pattern>  
+	    </layout>  
+  </appender>
+   
+    <logger name="java.sql.PreparedStatement" level="DEBUG" />
+	
+    <!-- 规定把信息同时输入到控制台和文件里面 -->
+	<root level="TRACE">
+		<appender-ref ref="file" />
+		<appender-ref ref="stdout" />
+	</root>
+</configuration>
+    
