@@ -16,7 +16,7 @@ import java.util.concurrent.Future;
 import com.test.sopa.thread.ThreadPool;
 
 public class HandleSopaLogMultiThread {
-	static int MAX_LOOP = 10;   //循环删除此数
+	static int MAX_LOOP = 15;   //循环删除此数
 	static int REMOVE_COUNT = 10;    //方法循环数超过此数则删除
 	static int MAX_BEGIN_END_SPAN = 1;    //低于此跨度则删除
 	static int MAX_REMOVE_METHOD_COUNT = 20000;   //最多移除的方法
